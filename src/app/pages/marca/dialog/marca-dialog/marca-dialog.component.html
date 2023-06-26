@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Nueva Marca</h1>
+<div mat-dialog-content>
+  <form class="example-form p-4" [formGroup]="registerForm">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Marca</mat-label>
+      <input matInput value="" formControlName="marca">
+    </mat-form-field>
+
+    
+    
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  <button *ngIf="marca === null" mat-raised-button color="primary" (click)="add()">Agregar</button>
+  <button *ngIf="marca !== null" mat-raised-button color="primary" (click)="edit()">Modificar</button>
+</div>

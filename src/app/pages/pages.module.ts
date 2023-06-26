@@ -26,6 +26,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmpleadoDialogComponent } from './empleado/dialog/empleado-dialog/empleado-dialog.component';
+import { MarcaDialogComponent } from './marca/dialog/marca-dialog/marca-dialog.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { EmpleadoDialogComponent } from './empleado/dialog/empleado-dialog/emple
     MainComponent,
     MarcaComponent,
     OrdenReparacionComponent,
-    EmpleadoDialogComponent
+    EmpleadoDialogComponent,
+    MarcaDialogComponent
   ],
   imports: [
     CommonModule,

@@ -11,10 +11,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptors';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NoPageFoundComponent
+    
+    
   ],
   imports: [
     BrowserModule,

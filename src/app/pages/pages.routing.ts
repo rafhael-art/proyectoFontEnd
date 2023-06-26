@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: PagesComponent,
-    canActivate: [AuthGuard],
+    /*canActivate: [AuthGuard],*/
     children: [
       { path: '', component: MainComponent, data: { titulo: 'Main', subTitulo: 'Bienvenido' } },
       //{ path: 'account-settings', component: AccountSettingsComponent , data: { titulo: 'Ajustes', subTitulo: 'Usuario' } },
