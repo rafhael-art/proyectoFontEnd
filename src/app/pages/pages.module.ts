@@ -27,8 +27,15 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmpleadoDialogComponent } from './empleado/dialog/empleado-dialog/empleado-dialog.component';
 import { MarcaDialogComponent } from './marca/dialog/marca-dialog/marca-dialog.component';
-
-
+import { FlotaDialogComponent } from './flota/dialog/flota-dialog/flota-dialog.component';
+import { ClienteDialogComponent } from './cliente/dialog/cliente-dialog/cliente-dialog.component';
+import { OrdenReparacionDialogComponent } from './orden-reparacion/dialog/orden-reparacion-dialog/orden-reparacion-dialog.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { OrdenReparacionDetDialogComponent } from './orden-reparacion/dialog/orden-reparacion-det-dialog/orden-reparacion-det-dialog.component';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+import locale from "@angular/common/locales/es-PE";
+import { registerLocaleData } from "@angular/common";
+registerLocaleData(locale);
 @NgModule({
   declarations: [
     PagesComponent,
@@ -40,7 +47,11 @@ import { MarcaDialogComponent } from './marca/dialog/marca-dialog/marca-dialog.c
     MarcaComponent,
     OrdenReparacionComponent,
     EmpleadoDialogComponent,
-    MarcaDialogComponent
+    MarcaDialogComponent,
+    FlotaDialogComponent,
+    ClienteDialogComponent,
+    OrdenReparacionDialogComponent,
+    OrdenReparacionDetDialogComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +65,7 @@ import { MarcaDialogComponent } from './marca/dialog/marca-dialog/marca-dialog.c
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    // MomentDateModule,
+    MomentDateModule,
     MatTableModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
@@ -62,7 +73,8 @@ import { MarcaDialogComponent } from './marca/dialog/marca-dialog/marca-dialog.c
     MatSelectModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule
   ],
   exports: [
     PagesComponent,

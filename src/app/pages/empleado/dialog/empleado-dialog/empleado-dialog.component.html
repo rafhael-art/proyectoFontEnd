@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nuevo Empleado</h1>
+<h1 mat-dialog-title>{{empleado? 'Modificar':'Nuevo'}} Empleado</h1>
 <div mat-dialog-content>
   <form class="example-form p-4" [formGroup]="registerForm">
     <mat-form-field class="example-full-width" appearance="outline">

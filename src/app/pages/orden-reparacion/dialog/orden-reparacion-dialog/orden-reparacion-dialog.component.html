@@ -1,0 +1,121 @@
+<h1 mat-dialog-title>{{ordenReparacion? 'Modificar':'Nueva'}} Orden de Reparación</h1>
+<div mat-dialog-content>
+  <form class="example-form p-4" [formGroup]="registerForm">
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Número</mat-label>
+        <input matInput #input maxlength="10" type="text" formControlName="numero">
+      </mat-form-field>
+
+
+
+
+      <mat-form-field>
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="flotaId" formControlName="clienteId">
+          <mat-option *ngFor="let food of clientes" [value]="food.id">
+            {{food.nom_cliente}} {{food.ape_cliente}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Monto Total</mat-label>
+        <input matInput #input readonly="true" formControlName="total">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Observaciones :</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="descripcion"></textarea>
+      </mat-form-field>
+
+    </div>
+  </form>
+  <mat-divider></mat-divider>
+  <form class="example-form p-4" [formGroup]="registerFormdet">
+    <h1 mat-dialog-title>Agregar Detalle</h1>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput #input type="text" formControlName="nombre">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input matInput #input type="number" formControlName="cantidad">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Monto Unitario</mat-label>
+        <input matInput #input type="number" formControlName="precioUnitario">
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" (click)="AgregarDetalle()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Agregar</button>
+      <mat-divider></mat-divider>
+    </div>
+  </form>
+  <mat-divider></mat-divider>
+  <div class="example-container">
+    <div class="overflow-auto rounded-lg shadow">
+      <table class="w-full">
+        <thead class="bg-violet-100 border-b-1 border-indigo-200 dark:bg-violet-950">
+          <tr>
+            <th class="p-2 text-sm font-semibold tracking-wide text-center dark:text-white">
+              Nombre
+            </th>
+            <th class="p-3 text-sm font-semibold tracking-wide text-center dark:text-white">
+              cantidad
+            </th>
+            <th class="p-2 text-sm font-semibold tracking-wide text-center dark:text-white">
+              Precio Unitario
+            </th>
+            <th class="p-2 text-sm font-semibold tracking-wide text-center dark:text-white">
+              Total
+            </th>
+            <th class="p-2 text-sm font-semibold tracking-wide text-center dark:text-white">
+              Acciones
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="dark:bg-slate-850" *ngFor="let item of detalle; let i =index">
+            <td class="whitespace-nowrap px-4 py-2 dark:text-white text-sm">
+              {{ item.nombre }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 dark:text-white text-sm">
+              {{ item.cantidad }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 dark:text-white text-sm">
+              {{ item.precioUnitario | number :'1.2-2'}}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 dark:text-white text-sm">
+              {{ item.subtotal | number :'1.2-2'}}
+            </td>
+            <td class="whitespace-nowrap px-5 py-2 dark:text-white text-sm text-center">
+
+              <button mat-icon-button color="warn" matTooltip="Eliminar item {{ item.nombre }}"
+                (click)="eliminarDet(i)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  <button *ngIf="ordenReparacion === null" mat-raised-button color="primary" (click)="add()">Agregar</button>
+  <button *ngIf="ordenReparacion !== null" mat-raised-button color="primary" (click)="edit()">Modificar</button>
+</div>

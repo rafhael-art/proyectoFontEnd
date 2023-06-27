@@ -1,4 +1,4 @@
-import { Component,Inject,OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Marca } from 'src/app/interfaces/marca';
@@ -22,8 +22,8 @@ export class MarcaDialogComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       id: new FormControl(this.marca ? this.marca.id : 0),
-      marca: new FormControl(this.marca ? this.marca.nom_marca : ''),
-      
+      nom_marca: new FormControl(this.marca ? this.marca.nom_marca : ''),
+
     })
   }
 

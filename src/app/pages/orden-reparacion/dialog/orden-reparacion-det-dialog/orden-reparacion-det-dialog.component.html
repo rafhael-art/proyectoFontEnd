@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Nueva Orden de Reparación</h1>
+<div mat-dialog-content>
+  <form class="example-form p-4" [formGroup]="registerForm">
+    <h1 mat-dialog-title>Agregar Detalle</h1>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput #input maxlength="10" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input matInput #input type="number">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Monto Unitario</mat-label>
+        <input matInput #input>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Monto Total</mat-label>
+        <input matInput #input readonly="true">
+      </mat-form-field>
+      <button mat-mini-fab matTooltip="Agregar" color="accent" aria-label="Example mini fab with a heart icon">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+
+    </div>
+  </form>
+  <div mat-dialog-actions>
+    <button mat-raised-button color=" warn" (click)="close()">Cancelar</button>
+    <button *ngIf="ordenReparaciondet === null" mat-raised-button color="primary" (click)="add()">Agregar</button>
+    <button *ngIf="ordenReparaciondet !== null" mat-raised-button color="primary" (click)="edit()">Modificar</button>
+  </div>
+</div>

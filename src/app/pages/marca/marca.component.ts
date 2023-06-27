@@ -22,6 +22,8 @@ export class MarcaComponent {
   }
 
   cargarMarcas() {
+    this.marcas = [];
+    this.cargando = true;
     this.marcaService.cargarMarcas()
       .subscribe(resp => {
         this.marcas = resp
@@ -47,11 +49,11 @@ export class MarcaComponent {
 
 
   openEdit(marca: Marca) {
-    
+
     this.marcaService.getMarca(marca.id)
       .subscribe({
         next: ((data) => {
-          
+
           const dialogRef = this.dialog.open(MarcaDialogComponent, {
             disableClose: false,
             width: '400px',
@@ -87,5 +89,5 @@ export class MarcaComponent {
       }
     })
   }
-  
+
 }

@@ -22,6 +22,8 @@ export class EmpleadoComponent {
   }
 
   cargarUsuarios() {
+    this.usuarios = [];
+    this.cargando = true;
     this.usuarioService.cargarEmpleados()
       .subscribe(resp => {
         this.usuarios = resp

@@ -1,14 +1,10 @@
-<h1 mat-dialog-title>Nueva Marca</h1>
+<h1 mat-dialog-title>{{marca? 'Modificar':'Nueva'}} Marca</h1>
 <div mat-dialog-content>
   <form class="example-form p-4" [formGroup]="registerForm">
-    <mat-form-field class="example-full-width" appearance="outline">
+    <mat-form-field class="example-full-width">
       <mat-label>Marca</mat-label>
-      <input matInput value="" formControlName="marca">
+      <input matInput value="" formControlName="nom_marca">
     </mat-form-field>
-
-    
-    
-
   </form>
 </div>
 <div mat-dialog-actions>

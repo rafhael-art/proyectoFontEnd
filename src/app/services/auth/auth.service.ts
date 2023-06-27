@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.get(`${base_url}/validarToken`)
       .pipe(
         tap((resp: any) => {
-          if (resp.isSucces) {
+          if (resp.succes) {
             this.usuario = resp.data;
             localStorage.setItem('token', resp.data.token);
           }
@@ -39,7 +39,6 @@ export class AuthService {
   }
 
   login(formData: Empleado): Observable<BaseResponse<string>> {
-    debugger
     return this.http.post<BaseResponse<string>>(`${base_url}/login`, formData)
       .pipe(
         tap((resp) => {
